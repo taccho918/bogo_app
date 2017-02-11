@@ -8,8 +8,14 @@
 </head>
 <body>
     <header>
-        <nav>
-            <% if user_signed_in? %>
+        
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">Tealeaf Todo</a>
+            </div>
+          </div>
+          <% if user_signed_in? %>
                 Logged in as <strong><%= current_user.email %></strong>.
                 
                 <%= link_to 'プロフィール変更', edit_user_registration_path %>
@@ -20,12 +26,24 @@
             <% end %>
             <%= link_to 'home', posts_path %>
         </nav>
+
+        <div id="main-container" class="container">
+      <div class="row">
+        <div id="sidebar" class="col-xs-3">
+            </div>
+            <div id="content" class="col-xs-6">
+              <%= yield %>
+            </div>
+            <div id="content" class="col-xs-3">
+            </div>
+          </div>
+        </div>
     </header>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-<%= yield %>
+
 
 </body>
 </html>
