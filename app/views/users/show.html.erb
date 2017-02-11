@@ -1,0 +1,9 @@
+<h1>my page</h1>
+<%= current_user %>
+
+<h3>Posts</h3>
+  <% @posts.each do |p| %>
+    <li>
+      <%= p.content %>
+    </li>
+  <% end %>
