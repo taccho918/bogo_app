@@ -1,0 +1,25 @@
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">BUY1GET1</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><% if user_signed_in? %><li>
+                    <li><a href=<%=edit_user_registration_path%>><button type="button" class="btn btn-default navbar-btn" style="margin:-15px;"%>Edit Profile</button></a></li>
+                    <li><a href=<%=destroy_user_session_path%>><button type="button" class="btn btn-default navbar-btn" style="margin:-15px;"%>Log out</button></a></li>
+                    <li><a href=<%=user_path(id=current_user.id)%>><button type="button" class="btn btn-default navbar-btn" style="margin:-15px;"%>Profile</button></a></li>
+                    <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Edit Profile', edit_user_registration_path %></button></li>
+                    <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></button></li>
+                    <li><button type="button" class="btn btn-default navbar-btn"><%= link_to current_user.name, user_path(id=current_user.id) %></button></li>
+                  <% else %>
+                    <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Sign Up', new_user_registration_path %></button></li>
+                    <li><button type="button" class="btn btn-info navbar-btn"><%= link_to 'Log In', new_user_session_path %></button></li>
+                  <% end %>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </header>
