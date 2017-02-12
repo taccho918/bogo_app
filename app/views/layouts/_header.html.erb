@@ -3,7 +3,17 @@
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-              <a class="navbar-brand" href="/">BUY1GET1</a>
+              <a class="navbar-brand" href="/">Share Deals!
+                <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>   
+        			</a>
+        			<%# add search form to navbar %>
+        		<div class="form-group navbar-form navbar-header">
+            <%= search_form_for @q do |f| %>
+              <%= f.text_field :content_cont, :placeholder => "Search", :size => "30px", :class => "form-control" %>
+              <%= f.submit 'Search', :class => "btn btn-default" %>
+            <% end %>
+            </div>
+            
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
@@ -20,3 +30,5 @@
           </div><!-- /.container-fluid -->
         </nav>
     </header>
+    
+    

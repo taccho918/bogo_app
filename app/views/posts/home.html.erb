@@ -1,0 +1,39 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Posts</h1>
+
+
+  <tbody>
+    <% @posts.each do |post| %>
+    <div class="panel panel-default">
+    	<div class="panel-heading">
+    		<td><h3><strong><%= User.find(post.user_id).name %></strong></h3></td>
+    		<td><%= post.created_at %></td>
+    	</div>
+    	<div class="panel-body text-left">
+    		<td><h2><%= post.content %></h2></td>
+    	</div>
+    	<div class="panel-footer text-right">
+    	  <td><%= commontator_thread(post) %></td>
+    	  <% if current_user.nil? %>
+    		  <td><%= link_to 'Show', post %></td>
+        <% else %>
+          <td><%= link_to 'Show', post %></td>
+          <% if post.user_id == current_user.id %>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+            <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>
+    	</div>
+    </div>
+    <% end %>
+  </tbody>
+
+<br>
+
+  <% if user_signed_in? %>
+    <%= link_to new_post_path, class: "btn btn-default btn-circle post-button" do %> 
+    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+  <% end %>
+  <% end %>

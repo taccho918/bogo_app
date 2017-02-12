@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   resources :posts
   resources :users, :only => [:show]
   
-  root 'posts#index'
+  root 'posts#home'
   get '/users/:id', to: 'users#show'
-  get '/posts/search_show', to: 'posts#search_show'
+  #get '/posts/search'              =>   'posts#search'
+  
   
   mount Commontator::Engine => '/commontator'
   

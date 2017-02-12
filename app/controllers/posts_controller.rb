@@ -1,19 +1,25 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  
+  def home
+    @posts = Post.all
+  end
+  
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
-
     @q = Post.search(params[:q]) 
     @keywords = @q.result(distinct: true)
   end
-
-  def search_show
-    
-  end
   
+  #def search
+  #  @q = Post.search(search_params)
+  #  @posts = @q
+  #              .result
+  #              .order(:created_at)
+  #end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -79,4 +85,10 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:content, :user_id)
     end
+    
+    def search_params
+      params.require(:q).permit(:content_cont)
+    end
+
+
 end
