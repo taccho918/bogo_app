@@ -12,13 +12,6 @@ class PostsController < ApplicationController
     @q = Post.search(params[:q]) 
     @keywords = @q.result(distinct: true)
   end
-  
-  #def search
-  #  @q = Post.search(search_params)
-  #  @posts = @q
-  #              .result
-  #              .order(:created_at)
-  #end
 
   # GET /posts/1
   # GET /posts/1.json
@@ -83,12 +76,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:content, :user_id)
+      params.require(:post).permit(:content, :user_id, :image, :image_cache, :remove_image)
     end
-    
-    def search_params
-      params.require(:q).permit(:content_cont)
-    end
-
-
+  
 end

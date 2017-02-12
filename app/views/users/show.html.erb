@@ -1,9 +1,30 @@
-<h1>My Profile</h1>
-<h3>User Name: <%= current_user.name %></h3>
+<div id="user_container">
+  <h1><%= current_user.name %></h1>
 
-<h3>Posts</h3>
-  <% @posts.each do |p| %>
-    <li>
-      <%= p.content %>
-    </li>
-  <% end %>
+  <h5><%= @posts.count %> posts</h5>
+  
+ <tbody>
+    <% @posts.each do |post| %>
+    <div class="panel panel-default">
+    	<div class="panel-heading">
+    		<td><%= post.created_at %></td>
+    	</div>
+    	<div class="panel-body text-left">
+    		<td><h2><%= post.content %></h2></td>
+    	</div>
+    	<div class="panel-footer text-right">
+    	  <td><%= commontator_thread(post) %></td>
+    	  <% if current_user.nil? %>
+    		  <td><%= link_to 'Show', post %></td>
+        <% else %>
+          <td><%= link_to 'Show', post %></td>
+          <% if post.user_id == current_user.id %>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+            <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>
+    	</div>
+    </div>
+    <% end %>
+  </tbody>
+       

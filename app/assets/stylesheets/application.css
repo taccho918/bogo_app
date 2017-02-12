@@ -14,27 +14,3 @@
  *= require commontator/application
  */
  
-.btn-circle {
-  width: 100px;
-  height: 100px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 50px;
-}
-
-span {
-  margin-top: 25px;
-}
-
-.post-button {
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-}
-
-.navbar-form {
-  padding-left: 300px;
-}
-
-

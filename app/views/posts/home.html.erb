@@ -1,9 +1,4 @@
-
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Posts</h1>
-
-
   <tbody>
     <% @posts.each do |post| %>
     <div class="panel panel-default">
@@ -13,6 +8,13 @@
     	</div>
     	<div class="panel-body text-left">
     		<td><h2><%= post.content %></h2></td>
+    		<p>
+          <% if post.image? %>
+            <div class="thumbnail">
+              <%= image_tag post.image.url %>
+            </div>
+          <% end %>
+        </p>
     	</div>
     	<div class="panel-footer text-right">
     	  <td><%= commontator_thread(post) %></td>

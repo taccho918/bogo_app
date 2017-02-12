@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+
+gem 'mini_magick'
+gem 'carrierwave-processing'
+gem "carrierwave"
+
 gem 'commontator'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -17,6 +22,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -41,6 +48,7 @@ gem 'devise'
 
 # ransack
 gem 'ransack'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

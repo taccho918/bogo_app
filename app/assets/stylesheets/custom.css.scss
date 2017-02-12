@@ -3,12 +3,62 @@
 
 body { 
     padding-top: 70px; 
-    background-color: #f1eace;
+    background-color: #F5F5DC;
 }
 
-html {
-  background-color: #f1eace;
+#content {
+  height:100%;
+  background-color: #F5F5DC;
 }
+
+#main_content {
+  background-color: #787567;
+}
+
+.navbar {
+    background-color: #27313a;
+}
+
+.btn-circle {
+  width: 100px;
+  height: 100px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 50px;
+}
+
+span {
+  margin-top: 25px;
+}
+
+.post-button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.navbar-form {
+  padding-left: 300px;
+}
+
+li {
+  padding-right: 10px;
+}
+
+ul.nav a:hover {
+  color: #F5F5DC !important; 
+}
+
+.navbar-header a:hover{
+  color: #F5F5DC !important;
+}
+
+.thumbnail {
+  border: none;
+}
+
+
 
 
 
