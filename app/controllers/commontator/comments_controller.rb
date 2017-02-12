@@ -38,7 +38,7 @@ module Commontator
           format.html { redirect_to @thread }
           format.js { render :cancel }
         elsif @comment.save
-          PostMailer.inform_comment(@comment).deliver
+          PostMailer.informing_email(@comment).deliver
           sub = @thread.config.thread_subscription.to_sym
           @thread.subscribe(@user) if sub == :a || sub == :b
           Subscription.comment_created(@comment)

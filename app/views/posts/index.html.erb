@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% if @keywords.present? %>
-<h1>search result</h1>
+<h2>search result</h2>
   <tbody>
     <% @keywords.each do |keyword| %>
     <div class="panel panel-default">
@@ -10,7 +10,7 @@
     		<td><%= keyword.created_at %></td>
     	</div>
     	<div class="panel-body text-left">
-    		<td><h2><%= keyword.content %></h2></td>
+    		<td><h3><%= keyword.content %></h3></td>
     		<p>
           <% if keyword.image? %>
             <div class="thumbnail">
@@ -37,9 +37,6 @@
 <% else %>
    <h3>no posts<h3>
 <% end %>
-
-  
-
 <br>
 
   <% if user_signed_in? %>
@@ -48,4 +45,6 @@
   <% end %>
   <% end %>
   
-  <button type="button" class="btn btn-outline-success">Success</button>
+  
+  <%= link_to 'Back', root_path %>
+  

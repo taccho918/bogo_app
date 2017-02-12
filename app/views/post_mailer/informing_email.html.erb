@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1><%= @commenter.name %> commented to your post:</h1>
+    　<div style="padding: 10px; margin-bottom: 10px; border: 5px double #333333;">
+        <%= Post.find(@comment.thread_id).content %> <br />
+        <img src="https://hackathon-halkey.c9users.io/<%= Post.find(@comment.thread_id).image %>" border="0" width="200" height="200" />
+　　　</div>
+　　　<div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+        <%= @comment.body %>
+      </div>
+  </body>
+</html>

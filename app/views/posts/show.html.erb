@@ -25,6 +25,8 @@
   <%#<%= commontator_thread_show(@post) %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if current_user.id == User.find(@post.user_id).id %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', root_path %>
 

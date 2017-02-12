@@ -3,11 +3,12 @@ class PostMailer < ApplicationMailer
 
   layout "mailer"
   
-  def inform_comment(comment)
+  def informing_email(comment)
     @comment = comment
-    @commenter = User.find(Post.find(comment.thread_id).user_id)
+    @poster = User.find(Post.find(comment.thread_id).user_id)
+    @commenter = User.find(Post.find(comment.creator_id).user_id)
     
-    mail to: @commenter.email, subject: "A comment has been made to your post by "+@commenter.name+"!"
+    mail to: @poster.email, subject: "A comment has been made to your post by "+@commenter.name+"!"
   
   end
   

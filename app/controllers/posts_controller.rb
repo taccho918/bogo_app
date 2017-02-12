@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   
   def home
     @posts = Post.all
+    @posts = Post.page(params[:page])
   end
   
   # GET /posts

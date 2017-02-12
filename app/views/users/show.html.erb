@@ -10,8 +10,15 @@
     		<td><%= post.created_at %></td>
     	</div>
     	<div class="panel-body text-left">
-    		<td><h2><%= post.content %></h2></td>
+    		<td><h3><%= post.content %></h3></td>
     	</div>
+    	<p>
+          <% if post.image? %>
+            <div class="thumbnail">
+              <%= image_tag post.image.url %>
+            </div>
+          <% end %>
+      </p>
     	<div class="panel-footer text-right">
     	  <td><%= commontator_thread(post) %></td>
     	  <% if current_user.nil? %>
@@ -27,4 +34,6 @@
     </div>
     <% end %>
   </tbody>
-       
+
+
+<%= link_to 'Back', root_path %>
