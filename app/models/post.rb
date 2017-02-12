@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  acts_as_commontable
   #post belongs to user
   belongs_to :user 
 

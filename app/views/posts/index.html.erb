@@ -4,41 +4,21 @@
 <h1>Listing Posts</h1>
 
 <h3>search</h3>
-<%= search_form_for @q do |f| %>
+  <%= search_form_for @q , url: {action: 'search_show'} do |f| %>
+  <%#<%= search_form_for @q do |f| %>
   <%= f.label :posts, 'keyword' %>
   <%= f.text_field :content_cont %>
-  <div>
-    <%= f.submit 'Search' %>
+  <div class="action">
+    <%= f.submit 'Search'  %>
   </div>
 <% end %>
 
-<tbody>
-    <% @keywords.each do |keyword| %>
-    <div class="panel panel-default">
-    	<div class="panel-heading">
-    		<td><h3><strong>search<%= User.find(keyword.user_id).name %></strong></h3></td>
-    		<td><%= keyword.created_at %></td>
-    	</div>
-    	<div class="panel-body text-left">
-    		<td><h2><%= keyword.content %></h2></td>
-    	</div>
-    	<div class="panel-footer text-right">
-    	  <% if current_user.nil? %>
-    		  <td><%= link_to 'Show', keyword %></td>
-        <% else %>
-          <td><%= link_to 'Show', keyword %></td>
-          <% if keyword.user_id == current_user.id %>
-            <td><%= link_to 'Edit', edit_post_path(keyword) %></td>
-            <td><%= link_to 'Delete', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        <% end %>
-    	</div>
-    </div>
-    <% end %>
-  </tbody>
+
 
   <tbody>
     <% @posts.each do |post| %>
+    <%= commontator_thread(post) %>
+    <% puts commontator_thread(post) %>
     <div class="panel panel-default">
     	<div class="panel-heading">
     		<td><h3><strong><%= User.find(post.user_id).name %></strong></h3></td>
@@ -46,8 +26,10 @@
     	</div>
     	<div class="panel-body text-left">
     		<td><h2><%= post.content %></h2></td>
+    		<%= commontator_thread(post) %>
     	</div>
     	<div class="panel-footer text-right">
+    	  <td><%= commontator_thread(post) %></td>
     	  <% if current_user.nil? %>
     		  <td><%= link_to 'Show', post %></td>
         <% else %>

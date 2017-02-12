@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   
   root 'posts#index'
   get '/users/:id', to: 'users#show'
+  get '/posts/search_show', to: 'posts#search_show'
+  
+  mount Commontator::Engine => '/commontator'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
