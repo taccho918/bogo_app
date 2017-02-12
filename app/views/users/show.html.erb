@@ -1,20 +1,9 @@
 <h1>My Profile</h1>
 <h3>User Name: <%= current_user.name %></h3>
-<%= current_user.id %>
 
 <h3>Posts</h3>
-    <tbody>
-    <% @posts.each do |post| %>
-    <div class="panel panel-default">
-    	<div class="panel-body">
-    		<td><h2><%= post.content %></h2></td>
-    	</div>
-    	<div class="panel-footer">
-    		<td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    	</div>
-    </div>
-  </tbody>
-    
+  <% @posts.each do |p| %>
+    <li>
+      <%= p.content %>
+    </li>
   <% end %>

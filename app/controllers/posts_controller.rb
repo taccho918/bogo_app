@@ -5,6 +5,15 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @q = Post.search(params[:q]) 
+    @keywords = @q.result(distinct: true)
+    
+    #respond_to do |format|
+     # format.html # index.html.erb
+      #format.json { render json: @keyword }
+    #end
+    
+    
   end
 
   # GET /posts/1

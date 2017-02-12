@@ -16,7 +16,9 @@
     <%= f.text_area :content, :size => "30x10" %>
   </div>
 
-　<input type="hidden" id="post_user_id" name="post[user_id]" value=current_user.id />
+　<input type="hidden" id="post_user_id" name="post[user_id]" value= <%= current_user.id %>  />
+
+  
 
   <div class="actions">
     <%= f.submit %>
